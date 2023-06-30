@@ -46,10 +46,7 @@ def new_game():
 # vypise csv subor so statmi, ktore sa treba sa doucit
 def must_to_learn():
     list_states = states["state"].tolist()
-    for state in list_states:
-        if state not in correct_answers:
-            must_lear_state_list.append(state)
-
+    must_lear_state_list = [state for state in list_states if state not in correct_answers]
     data = pandas.DataFrame(must_lear_state_list)
     data.to_csv("must_learn.txt")
 
